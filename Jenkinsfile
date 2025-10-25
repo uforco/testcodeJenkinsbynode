@@ -21,39 +21,50 @@ pipeline {
             }
         }
 
-        // stage('🧑🏽‍💻 Checkout code') {
-        //     steps {
-        //         echo '🧑🏽‍💻 Checking out code...'
-        //         checkout scm
-        //     }
-        // }
+        stage('🧑🏽‍💻 Checkout code') {
+            steps {
+                echo '🧑🏽‍💻 Checking out code...'
+                checkout scm
+            }
+            steps {
+                echo '⚙️ Checking out main branch...'
+                checkout([$class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[url: 'https://github.com/uforco/testcodeJenkinsbynode.git']]
+                ])
+            }
+            // steps {
+            //     echo '⚙️ Checking out main branch...'
+            //     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/uforco/testcodeJenkinsbynode.git']])
+            // }
+        }
 
-        // stage("📦 Install dependencies") {
-        //     steps {
-        //         echo "📦 Installing dependencies..."
-        //         sh 'npm install'
-        //     }
-        // }
+        stage("📦 Install dependencies") {
+            steps {
+                echo "📦 Installing dependencies..."
+                sh 'npm install'
+            }
+        }
 
-        // stage("🧪 Test code") {
-        //     steps {
-        //         echo "🧪 Running tests..."
-        //         sh 'npm run test'
-        //     }
-        // }
+        stage("🧪 Test code") {
+            steps {
+                echo "🧪 Running tests..."
+                sh 'npm run test'
+            }
+        }
 
-        // stage("🏗️ Build") {
-        //     steps {
-        //         echo "🏗️ Building project..."
-        //         sh 'npm run build'
-        //     }
-        // }
+        stage("🏗️ Build") {
+            steps {
+                echo "🏗️ Building project..."
+                sh 'npm run build'
+            }
+        }
 
-        // stage("🏃🏽‍➡️ Run project in test mode") {
-        //     steps {
-        //         echo "🏃🏽‍➡️ Starting project..."
-        //         sh 'npm run start:prod'
-        //     }
-        // }
+        stage("🏃🏽‍➡️ Run project in test mode") {
+            steps {
+                echo "🏃🏽‍➡️ Starting project..."
+                sh 'npm run start:prod'
+            }
+        }
     }
 }
