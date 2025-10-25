@@ -60,11 +60,11 @@ pipeline {
             }
         }
 
-        stage("🏃🏽‍➡️ Run project in test mode") {
-            steps {
-                echo "🏃🏽‍➡️ Starting project..."
-                sh 'npm run start:prod'
-            }
-        }
+        // stage("🏃🏽‍➡️ Run project in test mode") {
+        //     steps {
+        //         echo "🏃🏽‍➡️ Starting project..."
+        //         sh 'npm run start:prod'
+        //     }
+        // }
     }
 }
