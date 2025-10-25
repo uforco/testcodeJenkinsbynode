@@ -10,12 +10,12 @@ pipeline {
             }
         }
 
-        // stage("🧩 Check Node and NPM") {
-        //     steps {
-        //         echo "🧩 Checking Node.js and NPM versions..."
-        //         sh 'node -v && npm -v'
-        //     }
-        // }
+        stage("🧩 Check Node and NPM") {
+            steps {
+                echo "🧩 Checking Node.js and NPM versions..."
+                sh 'node -v && npm -v'
+            }
+        }
 
         // stage('🧑🏽‍💻 Checkout code') {
         //     steps {
