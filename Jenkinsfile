@@ -7,13 +7,12 @@ pipeline {
                 echo "🧩 Checking Node.js and NPM versions..."
             }
         }
-
-        // stage('🧑🏽‍💻 Checkout code') {
-        //     steps {
-        //         echo '🧑🏽‍💻 Checking out code...'
-        //         checkout scm
-        //     }
-        // }
+        stage('🧑🏽‍💻 Checkout code') {
+            steps {
+                echo '🧑🏽‍💻 Checking out code...'
+                // checkout scm
+            }
+        }
 
         // stage("📦 Install dependencies") {
         //     steps {
