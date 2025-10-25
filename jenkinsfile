@@ -4,30 +4,35 @@ pipeline {
     stages{
         stage('🧑🏽‍💻 checkout code'){
             step{
+                echo '🧑🏽‍💻 checkout code -'
                 checkout scm
             }
         }
 
         stage("📦 install dependencies"){
             step{
+                echo "📦 install dependencies -"
                 sh 'sudo npm install'
             }
         }
     
         stage("🧪 Test code"){
             step{
+                echo "🧪 Test code -"
                 sh 'npm run test'
             }
         }
 
         stage("🏗️ build"){
             step{
+                echo "🏗️ build -"
                 sh 'npm run build'
             }
         }
 
         stage("🏃🏽‍➡️ run project test mod"){
             step{
+                echo "🏃🏽‍➡️ run project test mod -"
                 sh 'npm run start:prod'
             }
         }
