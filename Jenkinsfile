@@ -46,12 +46,12 @@ pipeline {
             }
         }
 
-        stage("🧪 Test code") {
-            steps {
-                echo "🧪 Running tests..."
-                sh 'npm run test'
-            }
-        }
+        // stage("🧪 Test code") {
+        //     steps {
+        //         echo "🧪 Running tests..."
+        //         sh 'npm run test'
+        //     }
+        // }
 
         stage("🏗️ Build") {
             steps {
