@@ -7,9 +7,9 @@ export class AppService {
   constructor(private readonly mailerService: MailerService) {}
 
   async getHello() {
-    const result = await this.mailerService.sendMail();
+    // const result = await this.mailerService.sendMail();
 
-    console.log('Email sent successfully:', result);
+    // console.log('Email sent successfully:', result);
 
     return 'Email system is working!  Check your inbox.';
   }
