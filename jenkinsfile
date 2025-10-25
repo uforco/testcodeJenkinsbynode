@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages{
+        stage('🧑🏽‍💻 checkout code'){
+            step{
+                checkout scm
+            }
+        }
+
+        stage("📦 install dependencies"){
+            step{
+                sh 'sudo npm install'
+            }
+        }
+    
+        stage("🧪 Test code"){
+            step{
+                sh 'npm run test'
+            }
+        }
+
+        stage("🏗️ build"){
+            step{
+                sh 'npm run build'
+            }
+        }
+
+        stage("🏃🏽‍➡️ run project test mod"){
+            step{
+                sh 'npm run start:prod'
+            }
+        }
+    }
+}
