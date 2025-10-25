@@ -5,6 +5,11 @@ pipeline {
         nodejs 'Node24'
     }
 
+    triggers {
+        // Automatically triggers pipeline when code is pushed to 'main' branch
+        pollSCM('H/2 * * * *') // Checks GitHub repo every 2 minutes for new commits
+    }
+
     stages {
 
         stage("🎩 Run Groovy Script") {
