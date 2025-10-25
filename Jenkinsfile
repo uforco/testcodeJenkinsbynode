@@ -26,13 +26,13 @@ pipeline {
                 echo '🧑🏽‍💻 Checking out code...'
                 checkout scm
             }
-            steps {
-                echo '⚙️ Checking out main branch...'
-                checkout([$class: 'GitSCM',
-                    branches: [[name: '*/main']],
-                    userRemoteConfigs: [[url: 'https://github.com/uforco/testcodeJenkinsbynode.git']]
-                ])
-            }
+            // steps {
+            //     echo '⚙️ Checking out main branch...'
+            //     checkout([$class: 'GitSCM',
+            //         branches: [[name: '*/main']],
+            //         userRemoteConfigs: [[url: 'https://github.com/uforco/testcodeJenkinsbynode.git']]
+            //     ])
+            // }
             // steps {
             //     echo '⚙️ Checking out main branch...'
             //     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/uforco/testcodeJenkinsbynode.git']])
