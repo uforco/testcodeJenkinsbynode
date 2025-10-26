@@ -71,5 +71,14 @@ pipeline {
         //         sh 'npm run start:prod'
         //     }
         // }
+
+        stage('🐳 Build Docker image') {
+            steps {
+                script {
+                    echo "🐳 Building Docker image..."
+                    sh 'docker -v'
+                }
+            }
+        }
     }
 }
