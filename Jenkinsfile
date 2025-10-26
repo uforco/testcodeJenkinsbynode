@@ -78,6 +78,10 @@ pipeline {
                     echo "🐳 Building Docker image..."
                     sh 'docker -v'
                 }
+                script {
+                    echo "system"
+                    sh 'uname -a'
+                }
             }
         }
     }
