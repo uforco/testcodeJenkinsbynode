@@ -72,6 +72,9 @@ pipeline {
                     id -g
                     echo "all group id"
                     id -G
+
+                    echo "pull image"
+                    docker pull sharif780/drinkwithme:latest
                     '''
                 }
             }
