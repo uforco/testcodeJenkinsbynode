@@ -82,6 +82,14 @@ pipeline {
                     echo "system"
                     sh 'uname -a'
                 }
+                script {
+                    echo "system === "
+                    sh 'docker images'
+                }
+                script {
+                    echo "system === "
+                    sh 'docker ps'
+                }
             }
         }
     }
