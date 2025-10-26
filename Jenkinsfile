@@ -12,63 +12,44 @@ pipeline {
 
     stages {
 
-        stage("🎩 Run Groovy Script") {
-            steps {
-                echo "🎩 Run Groovy Script"
-                sh 'whoami'
-            }
-        }
-
-        stage("🧩 Check Node and NPM") {
-            steps {
-                echo "🧩 Checking Node.js and NPM versions..."
-                sh 'node -v && npm -v'
-            }
-        }
-
-        stage('🧑🏽‍💻 Checkout code') {
-            // steps {
-            //     echo '🧑🏽‍💻 Checking out code...'
-            //     checkout scm
-            // }
-            steps {
-                echo '⚙️ Checking out main branch...'
-                checkout([$class: 'GitSCM',
-                    branches: [[name: '*/main']],
-                    userRemoteConfigs: [[url: 'https://github.com/uforco/testcodeJenkinsbynode.git']]
-                ])
-            }
-            // steps {
-            //     echo '⚙️ Checking out main branch...'
-            //     checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/uforco/testcodeJenkinsbynode.git']])
-            // }
-        }
-
-        stage("📦 Install dependencies") {
-            steps {
-                echo "📦 Installing dependencies..."
-                sh 'npm install'
-            }
-        }
-
-        // stage("🧪 Test code") {
+        // stage("🎩 Run Groovy Script") {
         //     steps {
-        //         echo "🧪 Running tests..."
-        //         sh 'npm run test'
+        //         echo "🎩 Run Groovy Script"
+        //         sh 'whoami'
         //     }
         // }
 
-        stage("🏗️ Build") {
-            steps {
-                echo "🏗️ Building project..."
-                sh 'npm run build'
-            }
-        }
-
-        // stage("🏃🏽‍➡️ Run project in test mode") {
+        // stage("🧩 Check Node and NPM") {
         //     steps {
-        //         echo "🏃🏽‍➡️ Starting project..."
-        //         sh 'npm run start:prod'
+        //         echo "🧩 Checking Node.js and NPM versions..."
+        //         sh 'node -v && npm -v'
+        //     }
+        // }
+
+        // stage('🧑🏽‍💻 Checkout code') {
+
+        //     steps {
+        //         echo '⚙️ Checking out main branch...'
+        //         checkout([$class: 'GitSCM',
+        //             branches: [[name: '*/main']],
+        //             userRemoteConfigs: [[url: 'https://github.com/uforco/testcodeJenkinsbynode.git']]
+        //         ])
+        //     }
+
+        // }
+
+        // stage("📦 Install dependencies") {
+        //     steps {
+        //         echo "📦 Installing dependencies..."
+        //         sh 'npm install'
+        //     }
+        // }
+
+
+        // stage("🏗️ Build") {
+        //     steps {
+        //         echo "🏗️ Building project..."
+        //         sh 'npm run build'
         //     }
         // }
 
@@ -82,13 +63,16 @@ pipeline {
                     echo "system"
                     sh 'uname -a'
                 }
+                // TODO: docker system and docker engine restart
+                // TODO: docker root user group setup
+                // TODO: docker with docker compose install latest version
                 script {
-                    echo "system === "
-                    sh 'docker images'
-                }
-                script {
-                    echo "system === "
-                    sh 'docker ps'
+                    sh '''
+                    echo "host group id"
+                    id -g
+                    echo "all group id"
+                    id -G
+                    '''
                 }
             }
         }
